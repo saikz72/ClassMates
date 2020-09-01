@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput} from 'react-native';
 
-const LoginScreen = () => {
+const SignupScreen = () => {
   return (
     <View style = {styles.fullPage}>
       <View style = {styles.logoView}>
@@ -24,20 +24,21 @@ const LoginScreen = () => {
           autoCorrect = {false}
         />
       </View>
-      <View style = {styles.forgotView}> 
-        <TouchableOpacity>
-          <Text style = {styles.forgot}>Forgot password?</Text> 
-        </TouchableOpacity>
-      </View>
       <View>
-        <TouchableOpacity onPress style={styles.loginButton}>
-          <Text style={styles.loginText}>Login</Text>
+        <TouchableOpacity onPress style={styles.signupButton}>
+          <Text style={styles.signupText}>Signup</Text>
         </TouchableOpacity>
       </View>
-      <View style = {styles.accountSignView}>
-        <Text style = {styles.signup}>Don't have an account?</Text>
+      <View style={styles.msAccountView}>
+        <Text style={styles.msAccountText}>Or signup using your Microsoft account</Text>
         <TouchableOpacity>
-          <Text style = {styles.forgot}> Signup here</Text>
+          <Image source = {require("../SupportRoom/assets/msLogo.png")} style={styles.msLogo}/>
+        </TouchableOpacity>
+      </View>
+      <View style = {styles.termsAndCondView}>
+        <Text style = {styles.agreeText}>By signing up you agree to our</Text>
+        <TouchableOpacity>
+          <Text style = {styles.termsAndCondText}> Terms and Conditions</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -46,12 +47,19 @@ const LoginScreen = () => {
 
 const styles = StyleSheet.create ({
   logo:{
-    height:  100,
+    height:  80,
     width: 210,
     alignSelf: 'center',
   },
   logoView:{
     borderColor: 'white',
+  },
+  girlsPic:{
+    height:  150,
+    width: 250,
+    alignSelf: 'center',
+    borderRadius: 10,
+    marginBottom: 10
   },
   emailPassTI:{
     borderColor: 'rgb(61, 139, 227)',
@@ -67,24 +75,10 @@ const styles = StyleSheet.create ({
   },
   emailPassView:{
     height: 105,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginBottom: 20
   },
-  signup:{
-    color: 'grey'
-  },
-  forgot:{
-    color: 'rgb(61, 139, 227)',
-  },
-  forgotView:{
-    width: 310,
-    height: 40,
-    marginBottom: 20,
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-    borderColor: 'black'
-  },
-  loginButton:{
+  signupButton:{
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
@@ -99,18 +93,40 @@ const styles = StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  loginText:{
+  signupText:{
     fontSize: 22,
     color: 'white',
     fontWeight: '500'
   },
-  accountSignView:{
+  msAccountText:{
+    color: 'grey',
+    fontWeight: "800"
+  },
+  msAccountView:{
+    width: 300,
+    alignItems: 'center',
+    height: 70,
+    justifyContent: 'space-between',
+    marginVertical: 20
+  },
+  msLogo:{
+    height: 40,
+    width: 40
+  },
+  agreeText:{
+    color: 'grey',
+    fontSize: 10
+  },
+  termsAndCondText:{
+    color: 'rgb(61, 139, 227)',
+    fontSize: 10
+  },
+  termsAndCondView:{
     width: 310,
     height: 60,
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
   },
 });
 
-export default LoginScreen;
+export default SignupScreen;
