@@ -1,32 +1,42 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
-    <View style = {styles.fullPage}>
-      <View style = {styles.logoView}>
-        <Image source = {require("../../assets/classmatesTextBlue.png")} style={styles.logo}/>
-      </View>
-      <View style = {styles.emailPassView}>
-        <TextInput 
-          style = {styles.emailPassTI}
-          placeholder= "school email"
-          placeholderTextColor= 'rgb(207, 207, 207)'
-          autoCapitalize = "none"
-          autoCorrect = {false}
+    <View style={styles.fullPage}>
+      <View style={styles.logoView}>
+        <Image
+          source={require('../../assets/classmatesTextBlue.png')}
+          style={styles.logo}
         />
-        <TextInput 
-          style = {styles.emailPassTI}
-          placeholder= "password"
-          placeholderTextColor= 'rgb(207, 207, 207)'
+      </View>
+      <View style={styles.emailPassView}>
+        <TextInput
+          style={styles.emailPassTI}
+          placeholder="school email"
+          placeholderTextColor="rgb(207, 207, 207)"
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+        <TextInput
+          style={styles.emailPassTI}
+          placeholder="password"
+          placeholderTextColor="rgb(207, 207, 207)"
           secureTextEntry={true}
-          autoCapitalize = "none"
-          autoCorrect = {false}
+          autoCapitalize="none"
+          autoCorrect={false}
         />
       </View>
-      <View style = {styles.forgotView}> 
+      <View style={styles.forgotView}>
         <TouchableOpacity>
-          <Text style = {styles.forgot}>Forgot password?</Text> 
+          <Text style={styles.forgot}>Forgot password?</Text>
         </TouchableOpacity>
       </View>
       <View>
@@ -34,26 +44,26 @@ const LoginScreen = () => {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
       </View>
-      <View style = {styles.accountSignView}>
-        <Text style = {styles.loggedin}>Don't have an account?</Text>
-        <TouchableOpacity>
-          <Text style = {styles.forgot}> Signup here</Text>
+      <View style={styles.accountSignView}>
+        <Text style={styles.loggedin}>Don't have an account?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
+          <Text style={styles.forgot}> Signup here</Text>
         </TouchableOpacity>
       </View>
     </View>
-  )
+  );
 };
 
-const styles = StyleSheet.create ({
-  logo:{
-    height:  100,
+const styles = StyleSheet.create({
+  logo: {
+    height: 100,
     width: 210,
     alignSelf: 'center',
   },
-  logoView:{
+  logoView: {
     borderColor: 'white',
   },
-  emailPassTI:{
+  emailPassTI: {
     borderColor: 'rgb(61, 139, 227)',
     backgroundColor: 'rgba(0,0,0,0)',
     height: 45,
@@ -63,57 +73,57 @@ const styles = StyleSheet.create ({
     fontSize: 18,
     color: 'white',
     borderBottomWidth: 2,
-    paddingHorizontal: 15,    
+    paddingHorizontal: 15,
   },
-  emailPassView:{
+  emailPassView: {
     height: 105,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
-  tick:{
+  tick: {
     height: 20,
-    width: 20
+    width: 20,
   },
-  loggedin:{
-    color: 'grey'
+  loggedin: {
+    color: 'grey',
   },
-  forgot:{
+  forgot: {
     color: 'rgb(61, 139, 227)',
   },
-  forgotView:{
+  forgotView: {
     width: 310,
     height: 40,
     marginBottom: 20,
     flexDirection: 'column',
     alignItems: 'flex-end',
     justifyContent: 'center',
-    borderColor: 'black'
+    borderColor: 'black',
   },
-  loginButton:{
+  loginButton: {
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     width: 270,
     height: 40,
-    backgroundColor: 'rgb(61, 139, 227)'
+    backgroundColor: 'rgb(61, 139, 227)',
   },
-  fullPage:{
+  fullPage: {
     flex: 1,
     padding: 100,
     backgroundColor: 'rgb(232, 232, 232)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  loginText:{
+  loginText: {
     fontSize: 22,
     color: 'white',
-    fontWeight: '500'
+    fontWeight: '500',
   },
-  accountSignView:{
+  accountSignView: {
     width: 310,
     height: 60,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 });
 
