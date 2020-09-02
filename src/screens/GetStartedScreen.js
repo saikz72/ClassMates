@@ -29,7 +29,7 @@ const GetStartedScreen = ({ navigation }) => {
       </View>
       <View style={styles.signView}>
         <Text style={{ fontSize: 13, color: 'grey' }}>Have an account?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
           <Text
             style={{
               fontSize: 15,
@@ -37,7 +37,7 @@ const GetStartedScreen = ({ navigation }) => {
               fontWeight: 'bold',
             }}
           >
-            Sign in
+          Sign in
           </Text>
         </TouchableOpacity>
       </View>
