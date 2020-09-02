@@ -22,7 +22,7 @@ const GetStartedScreen = ({ navigation }) => {
         <TouchableOpacity
           onPress
           style={styles.button}
-          onPress={() => navigation.navigate('SignUpScreen')}
+          onPress={() => navigation.navigate('SignupScreen')}
         >
           <Text style={styles.getStarted}>Get Started</Text>
         </TouchableOpacity>
@@ -37,7 +37,7 @@ const GetStartedScreen = ({ navigation }) => {
               fontWeight: 'bold',
             }}
           >
-            Sign in
+          Sign in
           </Text>
         </TouchableOpacity>
       </View>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   signView: {
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 20,
     height: 40,
     borderColor: 'black',
     justifyContent: 'space-between',

@@ -32,7 +32,7 @@ const SignupScreen = () => {
       <View style={styles.msAccountView}>
         <Text style={styles.msAccountText}>Or signup using your Microsoft account</Text>
         <TouchableOpacity>
-          <Image source = {require("../SupportRoom/assets/msLogo.png")} style={styles.msLogo}/>
+          <Image source = {require("../../assets/msLogo.png")} style={styles.msLogo}/>
         </TouchableOpacity>
       </View>
       <View style = {styles.termsAndCondView}>
