@@ -1,8 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
+import RootStackScreen from './src/screens/RootStackScreen';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
-  return <Text>Welcome to Support Room</Text>;
+  return (
+    <NavigationContainer>
+      <RootStackScreen />
+    </NavigationContainer>
+  );
 };
 
 export default App;
