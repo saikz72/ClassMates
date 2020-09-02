@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   signView: {
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 20,
     height: 40,
     borderColor: 'black',
     justifyContent: 'space-between',
