@@ -44,10 +44,10 @@ const LoginScreen = ({ navigation }) => {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.accountSignView}>
-        <Text style={styles.loggedin}>Don't have an account?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
-          <Text style={styles.forgot}> Signup here</Text>
+      <View style = {styles.accountSignView}>
+        <Text style = {styles.signup}>Don't have an account?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
+          <Text style = {styles.forgot}> Signup here</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 4,
     fontSize: 18,
-    color: 'white',
+    color: 'black',
     borderBottomWidth: 2,
     paddingHorizontal: 15,
   },
@@ -79,9 +79,8 @@ const styles = StyleSheet.create({
     height: 105,
     justifyContent: 'space-between',
   },
-  tick: {
-    height: 20,
-    width: 20,
+  signup:{
+    color: 'grey'
   },
   loggedin: {
     color: 'grey',
