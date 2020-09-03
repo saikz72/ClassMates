@@ -15,7 +15,15 @@ const subSignupScreenFaculty = ({ navigation }) => {
             <Text style={styles.statusText}>1 of 3</Text>
             <Image source = {require("../../assets/1of3.png")} style={styles.statusBar}></Image>
         </View>
-        
+        <View>
+            <TouchableOpacity
+                onPress = {() => navigation.navigate('subSignupScreenMajor')}
+            >
+                <View style={styles.buttonView}>
+                    <Text style={styles.buttonText}>Next</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
     </View>
   );
 };
@@ -60,7 +68,21 @@ const styles = StyleSheet.create({
       marginTop: 20,
       alignSelf: 'flex-end',
       color: 'grey'
-  }
+    },
+buttonView:{
+    height: 40,
+    backgroundColor: 'rgb(61, 139, 227)',
+    width: 325,
+    borderRadius: 20,
+    alignItems:'center',
+    justifyContent: 'center'
+    },
+buttonText:{
+    fontSize: 22,
+    color: 'white',
+    fontWeight: '500',
+},
+
 });
 
 export default subSignupScreenFaculty;
