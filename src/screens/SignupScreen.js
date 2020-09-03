@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput} from 'react-native';
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
   return (
     <View style = {styles.fullPage}>
       <View style = {styles.logoView}>
@@ -25,7 +25,7 @@ const SignupScreen = () => {
         />
       </View>
       <View>
-        <TouchableOpacity onPress style={styles.signupButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('subSignupScreenFaculty')} style={styles.signupButton}>
           <Text style={styles.signupText}>Signup</Text>
         </TouchableOpacity>
       </View>
