@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
-import MajorButton from '../components/MajorButton';
 
 const subSignupScreenFaculty = ({ navigation }) => {
   return (
@@ -15,7 +14,6 @@ const subSignupScreenFaculty = ({ navigation }) => {
         <View style={styles.statusBarView}>
             <Text style={styles.statusText}>1 of 3</Text>
             <Image source = {require("../../assets/1of3.png")} style={styles.statusBar}></Image>
-            <MajorButton/>
         </View>
         
     </View>
