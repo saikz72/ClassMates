@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput, Linking} from 'react-native';
 
 const SignupScreen = () => {
   return (
@@ -37,7 +37,9 @@ const SignupScreen = () => {
       </View>
       <View style = {styles.termsAndCondView}>
         <Text style = {styles.agreeText}>By signing up you agree to our</Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => Linking.openURL('https://docs.google.com/document/d/19qLGCM1354GiFU7JCmP9pU8gyY0A1GpQp1ZUHCNe0l0/edit?usp=sharing')}
+        >
           <Text style = {styles.termsAndCondText}> Terms and Conditions</Text>
         </TouchableOpacity>
       </View>
