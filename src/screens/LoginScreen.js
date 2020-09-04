@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Text,
   View,
@@ -7,8 +7,13 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import AuthContext from '../components/context/AuthContext';
 
 const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { handleSignIn } = useContext(AuthContext);
+
   return (
     <View style={styles.fullPage}>
       <View style={styles.logoView}>
@@ -24,6 +29,8 @@ const LoginScreen = ({ navigation }) => {
           placeholderTextColor="rgb(207, 207, 207)"
           autoCapitalize="none"
           autoCorrect={false}
+          value={email}
+          onChangeText={(email) => setEmail(email)}
         />
         <TextInput
           style={styles.emailPassTI}
@@ -32,6 +39,8 @@ const LoginScreen = ({ navigation }) => {
           secureTextEntry={true}
           autoCapitalize="none"
           autoCorrect={false}
+          value={password}
+          onChangeText={(password) => setPassword(password)}
         />
       </View>
       <View style={styles.forgotView}>
@@ -40,14 +49,17 @@ const LoginScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View>
-        <TouchableOpacity onPress style={styles.loginButton}>
+        <TouchableOpacity
+          onPress={() => handleSignIn(email, password)}
+          style={styles.loginButton}
+        >
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
       </View>
-      <View style = {styles.accountSignView}>
-        <Text style = {styles.signup}>Don't have an account?</Text>
+      <View style={styles.accountSignView}>
+        <Text style={styles.loggedin}>Don't have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
-          <Text style = {styles.forgot}> Signup here</Text>
+          <Text style={styles.forgot}> Signup here</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -71,7 +83,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 4,
     fontSize: 18,
-    color: 'black',
+    color: 'white',
     borderBottomWidth: 2,
     paddingHorizontal: 15,
   },
@@ -79,8 +91,9 @@ const styles = StyleSheet.create({
     height: 105,
     justifyContent: 'space-between',
   },
-  signup:{
-    color: 'grey'
+  tick: {
+    height: 20,
+    width: 20,
   },
   loggedin: {
     color: 'grey',
