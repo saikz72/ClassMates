@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
           onChangeText={(email) => setEmail(email)}
         />
 
-        {/* TI for passoword */}
+        {/* TI for password */}
         <TextInput
           style={styles.emailPassTI}
           placeholder="password"
