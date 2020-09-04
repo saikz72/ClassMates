@@ -4,11 +4,11 @@ import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'reac
 const subSignupScreenCourses = ({ navigation }) => {
   return (
     <View style={styles.fullPage}>
-      <Text style={styles.majorText}>Add to your courses list.</Text>
+      <Text style={styles.courseText}>Add to your courses list.</Text>
       
       {/* TextInput for user to input course */}
       <TextInput 
-          style = {styles.majorTI}
+          style = {styles.courseTI}
           placeholder= "start typing course name"
           placeholderTextColor= 'rgb(207, 207, 207)'
           autoCorrect = {false}
@@ -40,15 +40,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(232, 232, 232)',
   },
 
-  //the text that the user inputs
-  majorText:{
+  //the text that the user inputs as course
+  courseText:{
     fontSize: 50,
     fontWeight: 'bold',
     color: 'rgb(61, 139, 227)'
   },
 
-  //the text input for user's major
-  majorTI:{
+  //the text input for user's course
+  courseTI:{
     borderColor: 'rgb(61, 139, 227)',
     backgroundColor: 'rgba(0,0,0,0)',
     height: 65,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     width: 320,
   },
 
-  //the text for status bar "1of3"
+  //the text for status bar "3of3"
   statusText:{
       fontSize: 15,
       fontWeight: '700',
