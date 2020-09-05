@@ -17,7 +17,6 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.fullPage}>
-
       {/* View that encapsulates the logo(text version) */}
       <View style={styles.logoView}>
         <Image
@@ -28,7 +27,6 @@ const LoginScreen = ({ navigation }) => {
 
       {/* View that encapsulates the text inputs (TIs) for email and password */}
       <View style={styles.emailPassView}>
-        
         {/* TI for email */}
         <TextInput
           style={styles.emailPassTI}
@@ -72,7 +70,7 @@ const LoginScreen = ({ navigation }) => {
 
       {/* View that encapsulates "Don't have account" */}
       <View style={styles.accountSignView}>
-        <Text style={styles.loggedin}>Don't have an account?</Text>
+        <Text style={{ color: 'grey' }}>Don't have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
           <Text style={styles.forgot}> Signup here</Text>
         </TouchableOpacity>
@@ -82,7 +80,7 @@ const LoginScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-//styling for:
+  //styling for:
 
   //the logo (text version)
   logo: {
@@ -105,7 +103,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 4,
     fontSize: 18,
-    color: 'white',
+    color: 'black',
     borderBottomWidth: 2,
     paddingHorizontal: 15,
   },

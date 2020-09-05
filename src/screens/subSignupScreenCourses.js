@@ -1,37 +1,50 @@
-import React from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import React, { useContext } from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
+import AuthContext from '../components/context/AuthContext';
 
 const subSignupScreenCourses = ({ navigation }) => {
+  const { signupUserInFirebase } = useContext(AuthContext);
+
   return (
     <View style={styles.fullPage}>
       <Text style={styles.courseText}>Add to your courses list.</Text>
-      
+
       {/* TextInput for user to input course */}
-      <TextInput 
-          style = {styles.courseTI}
-          placeholder= "start typing course name"
-          placeholderTextColor= 'rgb(207, 207, 207)'
-          autoCorrect = {false}
+      <TextInput
+        style={styles.courseTI}
+        placeholder="start typing course name"
+        placeholderTextColor="rgb(207, 207, 207)"
+        autoCorrect={false}
       />
 
       {/* View that encapsulates the status bar and text  */}
       <View style={styles.statusBarView}>
         <Text style={styles.statusText}>3 of 3</Text>
-        <Image source = {require("../../assets/3of3.png")} style={styles.statusBar}></Image>
+        <Image
+          source={require('../../assets/3of3.png')}
+          style={styles.statusBar}
+        ></Image>
       </View>
 
       {/* Next Button */}
-      <TouchableOpacity onPress = {() => navigation.navigate('subSignupScreenCourses')}>
+      <TouchableOpacity onPress={() => signupUserInFirebase()}>
         <View style={styles.buttonView}>
           <Text style={styles.buttonText}>Next</Text>
         </View>
-      </TouchableOpacity>  
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  //styling for: 
+  //styling for:
 
   //the entire page/background
   fullPage: {
@@ -41,14 +54,14 @@ const styles = StyleSheet.create({
   },
 
   //the text that the user inputs as course
-  courseText:{
+  courseText: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: 'rgb(61, 139, 227)'
+    color: 'rgb(61, 139, 227)',
   },
 
   //the text input for user's course
-  courseTI:{
+  courseTI: {
     borderColor: 'rgb(61, 139, 227)',
     backgroundColor: 'rgba(0,0,0,0)',
     height: 65,
@@ -58,45 +71,45 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'black',
     borderBottomWidth: 2,
-    fontSize: 30   
+    fontSize: 30,
   },
 
   //the status bar
-  statusBar:{
+  statusBar: {
     height: 15,
     width: 320,
     borderColor: 'grey',
     borderWidth: 2,
     borderRadius: 10,
-    marginBottom: 20
+    marginBottom: 20,
   },
 
   //the view that encapsulates the status bar status text
-  statusBarView:{
+  statusBarView: {
     width: 320,
   },
 
   //the text for status bar "3of3"
-  statusText:{
-      fontSize: 15,
-      fontWeight: '700',
-      marginTop: 20,
-      alignSelf: 'flex-end',
-      color: 'grey'
+  statusText: {
+    fontSize: 15,
+    fontWeight: '700',
+    marginTop: 20,
+    alignSelf: 'flex-end',
+    color: 'grey',
   },
 
   //the background of the button
-  buttonView:{
+  buttonView: {
     height: 40,
     backgroundColor: 'rgb(61, 139, 227)',
     width: 325,
     borderRadius: 20,
-    alignItems:'center',
-    justifyContent: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   //the text inside the button
-  buttonText:{
+  buttonText: {
     fontSize: 22,
     color: 'white',
     fontWeight: '500',
