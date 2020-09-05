@@ -1,10 +1,28 @@
-import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput, Linking} from 'react-native';
+import React, { useContext, useState } from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  Linking,
+} from 'react-native';
+import AuthContext from '../components/context/AuthContext';
 
 const SignupScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { handleSignUp } = useContext(AuthContext);
+
+  const signUp = (email, password) => {
+    //TODO validate credentials
+    handleSignUp(email, password);
+    navigation.navigate('subSignupScreenFaculty');
+  };
+
   return (
     <View style={styles.fullPage}>
-
       {/* View that encapsulates the ClassMates logo(text version) */}
       <View style={styles.logoView}>
         <Image
@@ -15,7 +33,6 @@ const SignupScreen = ({ navigation }) => {
 
       {/* View that encapsulates text inputs for both email and passowrd */}
       <View style={styles.emailPassView}>
-        
         {/* TI for email */}
         <TextInput
           style={styles.emailPassTI}
@@ -23,6 +40,8 @@ const SignupScreen = ({ navigation }) => {
           placeholderTextColor="rgb(207, 207, 207)"
           autoCapitalize="none"
           autoCorrect={false}
+          value={email}
+          onChangeText={(email) => setEmail(email)}
         />
 
         {/* TI for password */}
@@ -33,11 +52,16 @@ const SignupScreen = ({ navigation }) => {
           secureTextEntry={true}
           autoCapitalize="none"
           autoCorrect={false}
+          value={password}
+          onChangeText={(password) => setPassword(password)}
         />
       </View>
 
       {/* Signup button */}
-      <TouchableOpacity onPress={() => navigation.navigate('subSignupScreenFaculty')} style={styles.signupButton}>
+      <TouchableOpacity
+        onPress={() => signUp(email, password)}
+        style={styles.signupButton}
+      >
         <Text style={styles.signupText}>Signup</Text>
       </TouchableOpacity>
 
@@ -57,7 +81,9 @@ const SignupScreen = ({ navigation }) => {
       {/* View that encapsulates text for terms and conditions */}
       <View style={styles.termsAndCondView}>
         <Text style={styles.agreeText}>By signing up you agree to our</Text>
-        <TouchableOpacity onPress={() => Linking.openURL(
+        <TouchableOpacity
+          onPress={() =>
+            Linking.openURL(
               'https://docs.google.com/document/d/19qLGCM1354GiFU7JCmP9pU8gyY0A1GpQp1ZUHCNe0l0/edit?usp=sharing'
             )
           }

@@ -4,7 +4,7 @@ export const initialState = {
   userToken: null,
 };
 
-const reducer = (state, action) => {
+const AuthReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
       return {
@@ -32,4 +32,4 @@ const reducer = (state, action) => {
   }
 };
 
-export default reducer;
+export default AuthReducer;
