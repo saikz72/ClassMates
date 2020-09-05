@@ -1,17 +1,21 @@
 import React, { useEffect, useReducer } from 'react';
-import { View, ActivityIndicator, Text } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import firebase from './src/firebase';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/HomeScreen';
 import RootStackScreen from './src/screens/RootStackScreen';
-import reducer, { initialState } from './src/components/reducer';
+import AuthReducer, {
+  initialState,
+} from './src/components/reducers/AuthReducer';
 import AuthContext from './src/components/context/AuthContext';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(AuthReducer, initialState);
+  let newEmail = '';
+  let newPassword = '';
 
   const authContext = React.useMemo(
     () => ({
@@ -27,11 +31,16 @@ const App = () => {
         dispatch({ type: 'LOGOUT', token: null, user: null });
       },
       handleSignUp: (email, password) => {
+        newEmail = email;
+        newPassword = password;
+      },
+      signupUserInFirebase: () => {
+        console.log('in firebase =' + newEmail + ' password = ' + newPassword);
         firebase
           .auth()
-          .createUserWithEmailAndPassword(email, password)
+          .createUserWithEmailAndPassword(newEmail, newPassword)
           .then((auth) => dispatch({ type: 'SIGNUP', token: 'TOKEN' }))
-          .catch((e) => console.log(e));
+          .catch(() => console.log('ERROR WITH SIGN UP'));
       },
     }),
     []
