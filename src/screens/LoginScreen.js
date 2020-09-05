@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
 
+//useStates to handle input from user
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,13 +17,19 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.fullPage}>
+
+      {/* View that encapsulates the logo(text version) */}
       <View style={styles.logoView}>
         <Image
           source={require('../../assets/classmatesTextBlue.png')}
           style={styles.logo}
         />
       </View>
+
+      {/* View that encapsulates the text inputs (TIs) for email and password */}
       <View style={styles.emailPassView}>
+        
+        {/* TI for email */}
         <TextInput
           style={styles.emailPassTI}
           placeholder="school email"
@@ -32,6 +39,8 @@ const LoginScreen = ({ navigation }) => {
           value={email}
           onChangeText={(email) => setEmail(email)}
         />
+
+        {/* TI for password */}
         <TextInput
           style={styles.emailPassTI}
           placeholder="password"
@@ -43,11 +52,15 @@ const LoginScreen = ({ navigation }) => {
           onChangeText={(password) => setPassword(password)}
         />
       </View>
+
+      {/* View that encapsulates the forgot password button */}
       <View style={styles.forgotView}>
         <TouchableOpacity>
           <Text style={styles.forgot}>Forgot password?</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Login button */}
       <View>
         <TouchableOpacity
           onPress={() => handleSignIn(email, password)}
@@ -56,6 +69,8 @@ const LoginScreen = ({ navigation }) => {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
       </View>
+
+      {/* View that encapsulates "Don't have account" */}
       <View style={styles.accountSignView}>
         <Text style={styles.loggedin}>Don't have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
@@ -67,14 +82,21 @@ const LoginScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+//styling for:
+
+  //the logo (text version)
   logo: {
     height: 100,
     width: 210,
     alignSelf: 'center',
   },
+
+  //logo view
   logoView: {
     borderColor: 'white',
   },
+
+  //the email and password text inputs
   emailPassTI: {
     borderColor: 'rgb(61, 139, 227)',
     backgroundColor: 'rgba(0,0,0,0)',
@@ -87,20 +109,19 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     paddingHorizontal: 15,
   },
+
+  //the view for email and password text inputs
   emailPassView: {
     height: 105,
     justifyContent: 'space-between',
   },
-  tick: {
-    height: 20,
-    width: 20,
-  },
-  loggedin: {
-    color: 'grey',
-  },
+
+  //the text forgot password button
   forgot: {
     color: 'rgb(61, 139, 227)',
   },
+
+  //the view that houses the forgot password button
   forgotView: {
     width: 310,
     height: 40,
@@ -110,6 +131,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: 'black',
   },
+
+  //the background/view for the login button
   loginButton: {
     borderRadius: 8,
     alignItems: 'center',
@@ -118,6 +141,8 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: 'rgb(61, 139, 227)',
   },
+
+  //the entire page/background
   fullPage: {
     flex: 1,
     padding: 100,
@@ -125,11 +150,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  //text inside login button
   loginText: {
     fontSize: 22,
     color: 'white',
     fontWeight: '500',
   },
+
+  //the view that has "Don't have an account"
   accountSignView: {
     width: 310,
     height: 60,
