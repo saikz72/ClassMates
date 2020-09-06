@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState} from 'react';
 import {
   Text,
   View,
@@ -8,21 +8,23 @@ import {
   TextInput,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
-import MajorButton from '../components/MajorButton'
+import MajorButton from '../components/MajorButton';
+import SubSignupScreenTI from '../components/SubSignupScreenTI';
 
 const subSignupScreenCourses = ({ navigation }) => {
   const { signupUserInFirebase } = useContext(AuthContext);
+  const [course, setCourse] = useState('');
 
   return (
     <View style={styles.fullPage}>
       <Text style={styles.courseText}>Add to your courses list.</Text>
 
       {/* TextInput for user to input course */}
-      <TextInput
-        style={styles.courseTI}
-        placeholder="start typing course name"
-        placeholderTextColor="rgb(207, 207, 207)"
-        autoCorrect={false}
+      <SubSignupScreenTI
+        placeholder="course/course code"
+        value={course}
+        onChangeText={(course) => setCourse(course)}
+        secureTextEntry={false}
       />
 
       {/* View that encapsulates the status bar and text  */}
@@ -60,19 +62,6 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontWeight: 'bold',
     color: 'rgb(61, 139, 227)',
-  },
-
-  //the text input for user's course
-  courseTI: {
-    borderColor: 'rgb(61, 139, 227)',
-    backgroundColor: 'rgba(0,0,0,0)',
-    height: 65,
-    width: 320,
-    marginVertical: 10,
-    borderRadius: 4,
-    fontSize: 30,
-    color: 'black',
-    borderBottomWidth: 2,
   },
 
   //the status bar

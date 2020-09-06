@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import MajorButton from '../components/MajorButton';
+import SubSignupScreenTI from '../components/SubSignupScreenTI';
 
 const subSignupScreenFaculty = ({ navigation }) => {
+  const[faculty, setFaculty] = useState('');
   return (
     <View style={styles.fullPage}>
       <Text style={styles.facultyText}>What's your faculty?</Text>
 
       {/* TextInput for user to input faculty */}
-      <TextInput 
-          style = {styles.facultyTI}
-          placeholder= "school faculty"
-          placeholderTextColor= 'rgb(207, 207, 207)'
-          autoCorrect = {false}
+      <SubSignupScreenTI 
+          placeholder="school email"
+          value={faculty}
+          onChangeText={(faculty)=>setEmail(faculty)}
+          secureTextEntry={false}
         />
 
       {/* View that encapsulates the status bar and text  */}
@@ -47,19 +49,6 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontWeight: 'bold',
     color: 'rgb(61, 139, 227)'
-  },
-
-  //the text input for user's faculty
-  facultyTI:{
-    borderColor: 'rgb(61, 139, 227)',
-    backgroundColor: 'rgba(0,0,0,0)',
-    height: 65,
-    width: 320,
-    marginVertical: 10,
-    borderRadius: 4,
-    color: 'black',
-    borderBottomWidth: 2,
-    fontSize: 30   
   },
 
   //the status bar

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { View, StyleSheet, TextInput } from 'react-native';
 
-//This is the component that defines the major text inputs in the app like the one on the SignupScreen
-const MajorTextInput = (props) => {
+//This is the component that defines text inputs in the subSignupScreens
+const SubSignupScreenTI = (props) => {
   return (
     <View>
         <TextInput
@@ -26,17 +26,14 @@ const styles = StyleSheet.create({
     textIn: {
         borderColor: 'rgb(61, 139, 227)',
         backgroundColor: 'rgba(0,0,0,0)',
-        height: 45,
+        height: 65,
         width: 320,
-        marginTop: 5,
+        marginVertical: 10,
         borderRadius: 4,
-        fontSize: 18,
+        fontSize: 30,
         color: 'black',
         borderBottomWidth: 2,
-        paddingHorizontal: 15,
     },
-    
-
 });
 
-export default MajorTextInput;
+export default SubSignupScreenTI;
