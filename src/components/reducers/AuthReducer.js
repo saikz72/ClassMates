@@ -6,6 +6,7 @@ export const initialState = {
 
 const AuthReducer = (state, action) => {
   switch (action.type) {
+    //handles login action when user taps on login button in sign in screen
     case 'LOGIN':
       return {
         ...state,
@@ -13,6 +14,7 @@ const AuthReducer = (state, action) => {
         userToken: action.token,
         isLoading: false,
       };
+    //handles logout action
     case 'LOGOUT':
       return {
         ...state,
@@ -20,6 +22,7 @@ const AuthReducer = (state, action) => {
         userToken: action.token,
         isLoading: false,
       };
+    //handles signup action
     case 'SIGNUP':
       return {
         ...state,
