@@ -10,15 +10,25 @@ import HomeScreen from './HomeScreen';
 
 const RootStack = createStackNavigator();
 
+//controls the authentication navigation flow
 const RootStackScreen = ({ navigation }) => (
   <RootStack.Navigator headerMode="screen">
     <RootStack.Screen name="GetStartedScreen" component={GetStartedScreen} />
     <RootStack.Screen name="SignupScreen" component={SignupScreen} />
     <RootStack.Screen name="LoginScreen" component={LoginScreen} />
-    <RootStack.Screen name="subSignupScreenFaculty" component={subSignupScreenFaculty} />
-    <RootStack.Screen name="subSignupScreenMajor" component={subSignupScreenMajor} />
-    <RootStack.Screen name="subSignupScreenCourses" component={subSignupScreenCourses} />
     <RootStack.Screen name="HomeScreen" component={HomeScreen} />
+    <RootStack.Screen
+      name="subSignupScreenFaculty"
+      component={subSignupScreenFaculty}
+    />
+    <RootStack.Screen
+      name="subSignupScreenMajor"
+      component={subSignupScreenMajor}
+    />
+    <RootStack.Screen
+      name="subSignupScreenCourses"
+      component={subSignupScreenCourses}
+    />
   </RootStack.Navigator>
 );
 

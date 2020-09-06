@@ -19,6 +19,7 @@ const App = () => {
 
   const authContext = React.useMemo(
     () => ({
+      //function to sign in user
       handleSignIn: (email, password) => {
         firebase
           .auth()
@@ -26,16 +27,18 @@ const App = () => {
           .then((auth) => dispatch({ type: 'LOGIN', token: 'TOKEN' }))
           .catch((e) => console.log(e));
       },
+      //function to sign out user
       handleSignOut: () => {
         firebase.auth().signOut();
         dispatch({ type: 'LOGOUT', token: null, user: null });
       },
+      //retrieves the email and password that user enters on signup
       handleSignUp: (email, password) => {
         newEmail = email;
         newPassword = password;
       },
+      //authenticate signed up users credentials in firebase
       signupUserInFirebase: () => {
-        console.log('in firebase =' + newEmail + ' password = ' + newPassword);
         firebase
           .auth()
           .createUserWithEmailAndPassword(newEmail, newPassword)
@@ -46,9 +49,9 @@ const App = () => {
     []
   );
 
+  //{/* runs on app start to determine the currentuser state (either logged in or not) */}
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
-      console.log(authUser);
       if (authUser) {
         dispatch({
           type: 'LOGIN',
@@ -68,6 +71,7 @@ const App = () => {
     };
   }, []);
 
+  //display a spinner to give feedback to user when loading
   if (state.isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -79,6 +83,7 @@ const App = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
+        {/* check the user token to determine what screen to display */}
         {state.userToken !== null ? (
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
