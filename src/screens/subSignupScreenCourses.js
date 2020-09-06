@@ -8,6 +8,7 @@ import {
   TextInput,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
+import MajorButton from '../components/MajorButton'
 
 const subSignupScreenCourses = ({ navigation }) => {
   const { signupUserInFirebase } = useContext(AuthContext);
@@ -33,12 +34,13 @@ const subSignupScreenCourses = ({ navigation }) => {
         ></Image>
       </View>
 
-      {/* Next Button */}
-      <TouchableOpacity onPress={() => signupUserInFirebase()}>
-        <View style={styles.buttonView}>
-          <Text style={styles.buttonText}>Next</Text>
-        </View>
-      </TouchableOpacity>
+      {/* Finish button which navigates to the app HomeScreen */}
+      <MajorButton 
+        text="Finish"
+        nextScreen={()=> navigation.navigate('subSignupScreenMajor')}
+        buttonWidth={320}
+        borderRadius={20}
+      />
     </View>
   );
 };

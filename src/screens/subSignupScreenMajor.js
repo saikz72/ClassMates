@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import MajorButton from '../components/MajorButton';
 
 const subSignupScreenMajor = ({ navigation }) => {
   return (
@@ -20,12 +21,13 @@ const subSignupScreenMajor = ({ navigation }) => {
             <Image source = {require("../../assets/2of3.png")} style={styles.statusBar}></Image>
         </View>  
         
-        {/* Next Button */}
-        <TouchableOpacity onPress = {() => navigation.navigate('subSignupScreenCourses')} >
-          <View style={styles.buttonView}>
-            <Text style={styles.buttonText}>Next</Text>
-          </View>
-        </TouchableOpacity>
+        {/* Nextbutton which navigates to the subSignupScreenMajor */}
+        <MajorButton 
+          text="Next"
+          nextScreen={()=> navigation.navigate('subSignupScreenCourses')}
+          buttonWidth={320}
+          borderRadius={20}
+        />
     </View>
   );
 };

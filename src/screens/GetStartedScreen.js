@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import MajorButton from '../components/MajorButton';
 
 const GetStartedScreen = ({ navigation }) => {
   return (
@@ -23,14 +24,13 @@ const GetStartedScreen = ({ navigation }) => {
         </Text>
       </View>
       
-      {/* "Get Started" button */}
-      <TouchableOpacity
-        onPress
-        style={styles.button}
-        onPress={() => navigation.navigate('SignupScreen')}
-      >
-        <Text style={styles.getStarted}>Get Started</Text>
-      </TouchableOpacity>
+      {/* Get started button which navigates to the SignupScreen */}
+      <MajorButton 
+        text="Get started"
+        nextScreen={()=> navigation.navigate('SignupScreen')}
+        buttonWidth={270}
+        borderRadius={20}
+      />
       
       {/* View that encapsulates text and button about signing if user has an account */}
       <View style={styles.signView}>

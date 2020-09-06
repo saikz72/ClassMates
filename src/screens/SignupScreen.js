@@ -9,6 +9,7 @@ import {
   Linking,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
+import MajorButton from '../components/MajorButton';
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -57,13 +58,13 @@ const SignupScreen = ({ navigation }) => {
         />
       </View>
 
-      {/* Signup button */}
-      <TouchableOpacity
-        onPress={() => signUp(email, password)}
-        style={styles.signupButton}
-      >
-        <Text style={styles.signupText}>Signup</Text>
-      </TouchableOpacity>
+      {/* Signup button which navigates to the subSignupScreenFaculty */}
+      <MajorButton 
+        text="Signup"
+        nextScreen={()=> navigation.navigate('subSignupScreenFaculty')}
+        buttonWidth={270}
+        borderRadius={10}
+      />
 
       {/* View that encapsulates Microsoft authentication */}
       <View style={styles.msAccountView}>
