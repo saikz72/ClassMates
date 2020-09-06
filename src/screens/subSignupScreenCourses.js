@@ -10,6 +10,7 @@ import {
 import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
 import SubSignupScreenTI from '../components/SubSignupScreenTI';
+import StatusBar from '../components/StatusBar';
 
 const subSignupScreenCourses = ({ navigation }) => {
   const { signupUserInFirebase } = useContext(AuthContext);
@@ -27,14 +28,11 @@ const subSignupScreenCourses = ({ navigation }) => {
         secureTextEntry={false}
       />
 
-      {/* View that encapsulates the status bar and text  */}
-      <View style={styles.statusBarView}>
-        <Text style={styles.statusText}>3 of 3</Text>
-        <Image
-          source={require('../../assets/3of3.png')}
-          style={styles.statusBar}
-        ></Image>
-      </View>
+      {/* StatusBar which shows stage of user sign up completion */}
+      <StatusBar 
+        step="3 of 3"
+        source={require('../../assets/3of3.png')}
+      />
 
       {/* Finish button which navigates to the app HomeScreen */}
       <MajorButton 
@@ -63,31 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'rgb(61, 139, 227)',
   },
-
-  //the status bar
-  statusBar: {
-    height: 15,
-    width: 320,
-    borderColor: 'grey',
-    borderWidth: 2,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-
-  //the view that encapsulates the status bar status text
-  statusBarView: {
-    width: 320,
-  },
-
-  //the text for status bar "3of3"
-  statusText: {
-    fontSize: 15,
-    fontWeight: '700',
-    marginTop: 20,
-    alignSelf: 'flex-end',
-    color: 'grey',
-  },
-
+  
   //the text inside the button
   buttonText: {
     fontSize: 22,
