@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import MajorButton from '../components/MajorButton';
 import SubSignupScreenTI from '../components/SubSignupScreenTI';
 import StatusBar from '../components/StatusBar';
@@ -15,12 +15,12 @@ const subSignupScreenMajor = ({ navigation }) => {
       <SubSignupScreenTI
         placeholder="major/program"
         value={major}
-        onChangeText={(major) => setEmail(major)}
+        onChangeText={(major) => setMajor(major)}
         secureTextEntry={false}
       />
 
       {/* StatusBar which shows stage of user sign up completion */}
-      <StatusBar 
+      <StatusBar
         step="2 of 3"
         source={require('../../assets/2of3.png')}
       />

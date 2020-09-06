@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text} from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 
 //This is the component that defines the status bar in the subSignupScreens
 const StatusBar = (props) => {

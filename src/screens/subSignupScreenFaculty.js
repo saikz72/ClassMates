@@ -1,33 +1,33 @@
-import React, {useState} from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 import MajorButton from '../components/MajorButton';
 import SubSignupScreenTI from '../components/SubSignupScreenTI';
 import StatusBar from '../components/StatusBar';
 
 const subSignupScreenFaculty = ({ navigation }) => {
-  const[faculty, setFaculty] = useState('');
+  const [faculty, setFaculty] = useState('');
   return (
     <View style={styles.fullPage}>
       <Text style={styles.facultyText}>What's your faculty?</Text>
 
       {/* TextInput for user to input faculty */}
-      <SubSignupScreenTI 
-          placeholder="school email"
-          value={faculty}
-          onChangeText={(faculty)=>setEmail(faculty)}
-          secureTextEntry={false}
-        />
+      <SubSignupScreenTI
+        placeholder="school email"
+        value={faculty}
+        onChangeText={(faculty) => setFaculty(faculty)}
+        secureTextEntry={false}
+      />
 
       {/* StatusBar which shows stage of user sign up completion */}
-      <StatusBar 
+      <StatusBar
         step="1 of 3"
         source={require('../../assets/1of3.png')}
       />
 
       {/* Next button which navigates to the subSignupScreenMajor */}
-      <MajorButton 
+      <MajorButton
         text="Next"
-        nextScreen={()=> navigation.navigate('subSignupScreenMajor')}
+        nextScreen={() => navigation.navigate('subSignupScreenMajor')}
         buttonWidth={320}
         borderRadius={20}
       />
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
 
   //the text that the user inputs as faculty
-  facultyText:{
+  facultyText: {
     fontSize: 50,
     fontWeight: 'bold',
     color: 'rgb(61, 139, 227)'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, StyleSheet, TextInput } from 'react-native';
 
 //This is the component that defines the major text inputs in the app like the one on the SignupScreen
 const MajorTextInput = (props) => {

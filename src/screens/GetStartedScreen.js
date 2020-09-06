@@ -23,15 +23,15 @@ const GetStartedScreen = ({ navigation }) => {
           share knowledge with each other.
         </Text>
       </View>
-      
+
       {/* Get started button which navigates to the SignupScreen */}
-      <MajorButton 
+      <MajorButton
         text="Get started"
-        nextScreen={()=> navigation.navigate('SignupScreen')}
+        nextScreen={() => navigation.navigate('SignupScreen')}
         buttonWidth={270}
         borderRadius={20}
       />
-      
+
       {/* View that encapsulates text and button about signing if user has an account */}
       <View style={styles.signView}>
         <Text style={{ fontSize: 13, color: 'grey' }}>Have an account?</Text>
@@ -43,7 +43,7 @@ const GetStartedScreen = ({ navigation }) => {
               fontWeight: 'bold',
             }}
           >
-          Sign in
+            Sign in
           </Text>
         </TouchableOpacity>
       </View>
@@ -72,15 +72,6 @@ const styles = StyleSheet.create({
     width: 290,
     alignSelf: 'center',
     borderRadius: 10,
-  },
-
-  //the view that holds the image
-  imageView: {
-    borderColor: 'black',
-    width: 330,
-    height: 280,
-    margin: 10,
-    justifyContent: 'space-between',
   },
 
   //the text that describes the app

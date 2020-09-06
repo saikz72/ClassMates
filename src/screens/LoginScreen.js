@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
@@ -19,6 +18,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.fullPage}>
+
       {/* View that encapsulates the logo(text version) */}
       <View style={styles.logoView}>
         <Image
@@ -29,11 +29,12 @@ const LoginScreen = ({ navigation }) => {
 
       {/* View that encapsulates the text inputs (TIs) for email and password */}
       <View style={styles.emailPassView}>
+
         {/* TI for email */}
         <MajorTextInput
           placeholder="school email"
           value={email}
-          onChangeText={(email)=>setEmail(email)}
+          onChangeText={(email) => setEmail(email)}
           secureTextEntry={false}
         />
 
@@ -41,7 +42,7 @@ const LoginScreen = ({ navigation }) => {
         <MajorTextInput
           placeholder="password"
           value={password}
-          onChangeText={(password)=>setPassword(password)}
+          onChangeText={(password) => setPassword(password)}
           secureTextEntry={true}
         />
       </View>
@@ -54,9 +55,9 @@ const LoginScreen = ({ navigation }) => {
       </View>
 
       {/* Login button which navigates to the app HomeScreen */}
-      <MajorButton 
+      <MajorButton
         text="Login"
-        nextScreen={()=> navigation.navigate('HomeScreen')}
+        nextScreen={() => navigation.navigate('HomeScreen')}
         buttonWidth={270}
         borderRadius={10}
       />
@@ -116,13 +117,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(232, 232, 232)',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-
-  //text inside login button
-  loginText: {
-    fontSize: 22,
-    color: 'white',
-    fontWeight: '500',
   },
 
   //the view that has "Don't have an account"

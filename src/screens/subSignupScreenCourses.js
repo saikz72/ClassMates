@@ -1,11 +1,8 @@
-import React, { useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Text,
   View,
   StyleSheet,
-  Image,
-  TouchableOpacity,
-  TextInput,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
@@ -29,15 +26,15 @@ const subSignupScreenCourses = ({ navigation }) => {
       />
 
       {/* StatusBar which shows stage of user sign up completion */}
-      <StatusBar 
+      <StatusBar
         step="3 of 3"
         source={require('../../assets/3of3.png')}
       />
 
       {/* Finish button which navigates to the app HomeScreen */}
-      <MajorButton 
+      <MajorButton
         text="Finish"
-        nextScreen={()=> navigation.navigate('HomeScreen')}
+        nextScreen={() => navigation.navigate('HomeScreen')}
         buttonWidth={320}
         borderRadius={20}
       />
@@ -60,13 +57,6 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontWeight: 'bold',
     color: 'rgb(61, 139, 227)',
-  },
-  
-  //the text inside the button
-  buttonText: {
-    fontSize: 22,
-    color: 'white',
-    fontWeight: '500',
   },
 });
 

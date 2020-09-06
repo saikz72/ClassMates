@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput,
   Linking,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
@@ -40,7 +39,7 @@ const SignupScreen = ({ navigation }) => {
         <MajorTextInput
           placeholder="school email"
           value={email}
-          onChangeText={(email)=>setEmail(email)}
+          onChangeText={(email) => setEmail(email)}
           secureTextEntry={false}
         />
 
@@ -48,15 +47,15 @@ const SignupScreen = ({ navigation }) => {
         <MajorTextInput
           placeholder="password"
           value={password}
-          onChangeText={(password)=>setPassword(password)}
+          onChangeText={(password) => setPassword(password)}
           secureTextEntry={true}
         />
       </View>
 
       {/* Signup button which navigates to the subSignupScreenFaculty */}
-      <MajorButton 
+      <MajorButton
         text="Signup"
-        nextScreen={()=> navigation.navigate('subSignupScreenFaculty')}
+        nextScreen={() => navigation.navigate('subSignupScreenFaculty')}
         buttonWidth={270}
         borderRadius={10}
       />
