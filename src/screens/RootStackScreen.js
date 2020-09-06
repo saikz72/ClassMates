@@ -6,6 +6,7 @@ import SignupScreen from './SignupScreen';
 import subSignupScreenFaculty from './subSignupScreenFaculty';
 import subSignupScreenMajor from './subSignupScreenMajor';
 import subSignupScreenCourses from './subSignupScreenCourses';
+import HomeScreen from './HomeScreen';
 
 const RootStack = createStackNavigator();
 
@@ -17,6 +18,7 @@ const RootStackScreen = ({ navigation }) => (
     <RootStack.Screen name="subSignupScreenFaculty" component={subSignupScreenFaculty} />
     <RootStack.Screen name="subSignupScreenMajor" component={subSignupScreenMajor} />
     <RootStack.Screen name="subSignupScreenCourses" component={subSignupScreenCourses} />
+    <RootStack.Screen name="HomeScreen" component={HomeScreen} />
   </RootStack.Navigator>
 );
 

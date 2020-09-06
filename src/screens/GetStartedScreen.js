@@ -99,24 +99,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  //the "Get Started" text
-  getStarted: {
-    fontSize: 22,
-    color: 'white',
-    fontWeight: '500',
-  },
-
-  //the background of the "Get Started" button
-  button: {
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-    width: 270,
-    height: 40,
-    backgroundColor: 'rgb(61, 139, 227)',
-  },
-
   //the view that encapsulates the "have account" text and "Sign in" text
   signView: {
     alignItems: 'center',

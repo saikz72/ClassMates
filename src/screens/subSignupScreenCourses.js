@@ -37,7 +37,7 @@ const subSignupScreenCourses = ({ navigation }) => {
       {/* Finish button which navigates to the app HomeScreen */}
       <MajorButton 
         text="Finish"
-        nextScreen={()=> navigation.navigate('subSignupScreenMajor')}
+        nextScreen={()=> navigation.navigate('HomeScreen')}
         buttonWidth={320}
         borderRadius={20}
       />
@@ -70,10 +70,9 @@ const styles = StyleSheet.create({
     width: 320,
     marginVertical: 10,
     borderRadius: 4,
-    fontSize: 18,
+    fontSize: 30,
     color: 'black',
     borderBottomWidth: 2,
-    fontSize: 30,
   },
 
   //the status bar
@@ -98,16 +97,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: 'flex-end',
     color: 'grey',
-  },
-
-  //the background of the button
-  buttonView: {
-    height: 40,
-    backgroundColor: 'rgb(61, 139, 227)',
-    width: 325,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
   //the text inside the button

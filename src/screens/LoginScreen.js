@@ -8,6 +8,8 @@ import {
   TextInput,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
+import MajorButton from '../components/MajorButton';
+import MajorTextInput from '../components/MajorTextInput';
 
 //useStates to handle input from user
 const LoginScreen = ({ navigation }) => {
@@ -28,26 +30,19 @@ const LoginScreen = ({ navigation }) => {
       {/* View that encapsulates the text inputs (TIs) for email and password */}
       <View style={styles.emailPassView}>
         {/* TI for email */}
-        <TextInput
-          style={styles.emailPassTI}
+        <MajorTextInput
           placeholder="school email"
-          placeholderTextColor="rgb(207, 207, 207)"
-          autoCapitalize="none"
-          autoCorrect={false}
           value={email}
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(email)=>setEmail(email)}
+          secureTextEntry={false}
         />
 
         {/* TI for password */}
-        <TextInput
-          style={styles.emailPassTI}
+        <MajorTextInput
           placeholder="password"
-          placeholderTextColor="rgb(207, 207, 207)"
-          secureTextEntry={true}
-          autoCapitalize="none"
-          autoCorrect={false}
           value={password}
-          onChangeText={(password) => setPassword(password)}
+          onChangeText={(password)=>setPassword(password)}
+          secureTextEntry={true}
         />
       </View>
 
@@ -58,15 +53,13 @@ const LoginScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      {/* Login button */}
-      <View>
-        <TouchableOpacity
-          onPress={() => handleSignIn(email, password)}
-          style={styles.loginButton}
-        >
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Login button which navigates to the app HomeScreen */}
+      <MajorButton 
+        text="Login"
+        nextScreen={()=> navigation.navigate('HomeScreen')}
+        buttonWidth={270}
+        borderRadius={10}
+      />
 
       {/* View that encapsulates "Don't have account" */}
       <View style={styles.accountSignView}>
@@ -94,20 +87,6 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
 
-  //the email and password text inputs
-  emailPassTI: {
-    borderColor: 'rgb(61, 139, 227)',
-    backgroundColor: 'rgba(0,0,0,0)',
-    height: 45,
-    width: 320,
-    marginTop: 5,
-    borderRadius: 4,
-    fontSize: 18,
-    color: 'black',
-    borderBottomWidth: 2,
-    paddingHorizontal: 15,
-  },
-
   //the view for email and password text inputs
   emailPassView: {
     height: 105,
@@ -128,16 +107,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
     borderColor: 'black',
-  },
-
-  //the background/view for the login button
-  loginButton: {
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 270,
-    height: 40,
-    backgroundColor: 'rgb(61, 139, 227)',
   },
 
   //the entire page/background

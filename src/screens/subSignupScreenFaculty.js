@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     width: 320,
     marginVertical: 10,
     borderRadius: 4,
-    fontSize: 18,
     color: 'black',
     borderBottomWidth: 2,
     fontSize: 30   
@@ -87,22 +86,6 @@ const styles = StyleSheet.create({
       color: 'grey'
   },
 
-  //the background of the button
-  buttonView:{
-    height: 40,
-    backgroundColor: 'rgb(61, 139, 227)',
-    width: 325,
-    borderRadius: 20,
-    alignItems:'center',
-    justifyContent: 'center'
-  },
-
-  //the text inside the button
-  buttonText:{
-    fontSize: 22,
-    color: 'white',
-    fontWeight: '500',
-  },
 });
 
 export default subSignupScreenFaculty;
