@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
+import { View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 
 //This is the component that defines text inputs in the subSignupScreens
 const SubSignupScreenTI = (props) => {
   return (
-    <View>
+    <View style={styles.tiView}> 
+      {props.icon}
       <TextInput
         style={styles.textIn}
         placeholder={props.placeholder}
@@ -15,6 +17,12 @@ const SubSignupScreenTI = (props) => {
         secureTextEntry={props.secureTextEntry}
         onChangeText={(val) => props.onChangeText(val)}
       />
+      <TouchableOpacity 
+          style={{justifyContent:'center', height: 65}}
+          onPress={()=>props.onChangeText("")}
+        >
+          <Feather name="x-circle" color='grey' size={15} style={{alignSelf:'center'}}/>
+        </TouchableOpacity>
     </View>
   );
 };
@@ -27,13 +35,22 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(61, 139, 227)',
     backgroundColor: 'rgba(0,0,0,0)',
     height: 65,
-    width: 320,
-    marginVertical: 10,
+    width: 270,
+    marginVertical: 1,
     borderRadius: 4,
     fontSize: 30,
     color: 'black',
-    borderBottomWidth: 2,
+    paddingHorizontal: 10
   },
+
+  //TI view
+  tiView: {
+    borderBottomWidth: 2,
+    flexDirection: 'row',
+    borderColor: 'rgb(61, 139, 227)',
+    width: 320,
+    paddingHorizontal: 10,
+  }
 });
 
 export default SubSignupScreenTI;

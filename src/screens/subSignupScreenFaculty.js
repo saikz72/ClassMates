@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import MajorButton from '../components/MajorButton';
 import SubSignupScreenTI from '../components/SubSignupScreenTI';
 import StatusBar from '../components/StatusBar';
+import Feather from 'react-native-vector-icons/Feather';
 
 const subSignupScreenFaculty = ({ navigation }) => {
   const [faculty, setFaculty] = useState('');
@@ -12,10 +13,11 @@ const subSignupScreenFaculty = ({ navigation }) => {
 
       {/* TextInput for user to input faculty */}
       <SubSignupScreenTI
-        placeholder="school email"
+        placeholder="school faculty"
         value={faculty}
         onChangeText={(faculty) => setFaculty(faculty)}
         secureTextEntry={false}
+        icon={<Feather name="home" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
       />
 
       {/* StatusBar which shows stage of user sign up completion */}
@@ -49,7 +51,8 @@ const styles = StyleSheet.create({
   facultyText: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: 'rgb(61, 139, 227)'
+    color: 'rgb(61, 139, 227)',
+    paddingVertical: 10
   },
 });
 
