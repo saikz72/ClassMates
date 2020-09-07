@@ -4,7 +4,8 @@ import { Text, View, StyleSheet, TextInput } from 'react-native';
 //This is the component that defines the major text inputs in the app like the one on the SignupScreen
 const MajorTextInput = (props) => {
   return (
-    <View>
+    <View style={styles.tiView}>
+        {props.icon}
         <TextInput
           style={styles.textIn}
           placeholder={props.placeholder}
@@ -28,13 +29,22 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0)',
         height: 45,
         width: 320,
-        marginTop: 5,
         borderRadius: 4,
         fontSize: 18,
         color: 'black',
-        borderBottomWidth: 2,
-        paddingHorizontal: 15,
+        paddingHorizontal: 10,
     },
+  
+
+    //TI view
+    tiView: {
+      borderWidth: 1,
+      flexDirection: 'row',
+      borderColor: 'rgb(61, 139, 227)',
+      width: 320,
+      paddingHorizontal: 10,
+      borderRadius: 10
+  },
     
 
 });

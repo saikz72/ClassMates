@@ -10,6 +10,7 @@ import {
 import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
 import MajorTextInput from '../components/MajorTextInput';
+import Feather from 'react-native-vector-icons/Feather'
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -41,6 +42,7 @@ const SignupScreen = ({ navigation }) => {
           value={email}
           onChangeText={(email) => setEmail(email)}
           secureTextEntry={false}
+          icon={<Feather name="mail" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
         />
 
         {/* TI for password */}
@@ -49,6 +51,7 @@ const SignupScreen = ({ navigation }) => {
           value={password}
           onChangeText={(password) => setPassword(password)}
           secureTextEntry={true}
+          icon={<Feather name="lock" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
         />
       </View>
 

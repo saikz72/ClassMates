@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import MajorButton from '../components/MajorButton';
 import SubSignupScreenTI from '../components/SubSignupScreenTI';
 import StatusBar from '../components/StatusBar';
+import Feather from 'react-native-vector-icons/Feather'
 
 const subSignupScreenMajor = ({ navigation }) => {
   const [major, setMajor] = useState('');
@@ -17,6 +18,7 @@ const subSignupScreenMajor = ({ navigation }) => {
         value={major}
         onChangeText={(major) => setMajor(major)}
         secureTextEntry={false}
+        icon={<Feather name="star" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
       />
 
       {/* StatusBar which shows stage of user sign up completion */}

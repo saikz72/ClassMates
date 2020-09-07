@@ -8,6 +8,7 @@ import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
 import SubSignupScreenTI from '../components/SubSignupScreenTI';
 import StatusBar from '../components/StatusBar';
+import Feather from 'react-native-vector-icons/Feather';
 
 const subSignupScreenCourses = ({ navigation }) => {
   const { signupUserInFirebase } = useContext(AuthContext);
@@ -23,6 +24,7 @@ const subSignupScreenCourses = ({ navigation }) => {
         value={course}
         onChangeText={(course) => setCourse(course)}
         secureTextEntry={false}
+        icon={<Feather name="book" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
       />
 
       {/* StatusBar which shows stage of user sign up completion */}
