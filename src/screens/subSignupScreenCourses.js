@@ -20,7 +20,7 @@ const subSignupScreenCourses = ({ navigation }) => {
 
       {/* TextInput for user to input course */}
       <SubSignupScreenTI
-        placeholder="course/course code"
+        placeholder="course"
         value={course}
         onChangeText={(course) => setCourse(course)}
         secureTextEntry={false}

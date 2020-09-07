@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
+import { View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 
 //This is the component that defines text inputs in the subSignupScreens
 const SubSignupScreenTI = (props) => {
@@ -16,6 +17,12 @@ const SubSignupScreenTI = (props) => {
         secureTextEntry={props.secureTextEntry}
         onChangeText={(val) => props.onChangeText(val)}
       />
+      <TouchableOpacity 
+          style={{justifyContent:'center', height: 65}}
+          onPress={()=>props.onChangeText("")}
+        >
+          <Feather name="x-circle" color='grey' size={15} style={{alignSelf:'center'}}/>
+        </TouchableOpacity>
     </View>
   );
 };
@@ -28,7 +35,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(61, 139, 227)',
     backgroundColor: 'rgba(0,0,0,0)',
     height: 65,
-    width: 320,
+    width: 270,
     marginVertical: 1,
     borderRadius: 4,
     fontSize: 30,

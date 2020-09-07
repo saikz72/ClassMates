@@ -8,7 +8,8 @@ import {
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
-import MajorTextInput from '../components/MajorTextInput';
+import RegularTextInput from '../components/RegularTextInput';
+import PasswordTextInput from '../components/PasswordTextInput';
 import Feather from 'react-native-vector-icons/Feather';
 
 //useStates to handle input from user
@@ -31,7 +32,7 @@ const LoginScreen = ({ navigation }) => {
       {/* View that encapsulates the text inputs (TIs) for email and password */}
       <View style={styles.emailPassView}>
         {/* TI for email */}
-        <MajorTextInput
+        <RegularTextInput
           placeholder="school email"
           value={email}
           onChangeText={(email) => setEmail(email)}
@@ -40,11 +41,9 @@ const LoginScreen = ({ navigation }) => {
         />
 
         {/* TI for password */}
-        <MajorTextInput
-          placeholder="password"
+        <PasswordTextInput
           value={password}
           onChangeText={(password) => setPassword(password)}
-          secureTextEntry={true}
           icon={<Feather name="lock" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
         />
       </View>
