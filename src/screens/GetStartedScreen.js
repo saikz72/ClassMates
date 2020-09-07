@@ -60,7 +60,16 @@ const styles = StyleSheet.create({
     width: 100,
     alignSelf: 'center',
   },
-
+  
+  //the view that holds the image
+  imageView: {
+    borderColor: 'black',
+    width: 330,
+    height: 280,
+    marginBottom: 23,
+    justifyContent: 'space-between',
+  },
+  
   //the view that holds the logo
   logoView: {
     borderColor: 'black',
