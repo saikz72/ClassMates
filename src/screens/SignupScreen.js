@@ -34,7 +34,6 @@ const SignupScreen = ({ navigation }) => {
 
       {/* View that encapsulates text inputs for both email and passowrd */}
       <View style={styles.emailPassView}>
-
         {/* TI for email */}
         <MajorTextInput
           placeholder="school email"
@@ -55,7 +54,7 @@ const SignupScreen = ({ navigation }) => {
       {/* Signup button which navigates to the subSignupScreenFaculty */}
       <MajorButton
         text="Signup"
-        nextScreen={() => navigation.navigate('subSignupScreenFaculty')}
+        nextScreen={() => signUp(email, password)}
         buttonWidth={270}
         borderRadius={10}
       />
