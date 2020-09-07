@@ -4,7 +4,7 @@ import {
   View,
   StyleSheet,
   TouchableOpacity,
-  FlatList
+  FlatList,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
@@ -22,14 +22,20 @@ const subSignupScreenCourses = ({ navigation }) => {
   // these characters are not allowed in course name string
   const specialChars=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-"," _",
                     " =", "+", "/", "*", ":", ";", ',', "`", "'", ".", "?", "]", "[", "{", "}", '"', "|", ]
-                    
   //this adds the course to the array if it's not there already and if the string is not empty
   const submitAndClear = () => {
     courseList.includes(course) ? alert("Hmm...seems like this course is already in your list")
-      : (course.length > 0 && course.includes(specialChars) ? setCourseList([...courseList, course]) : alert("Invalid Entry"))
+      : (course.length > 0 ? setCourseList((prevCourseList) => [...prevCourseList, course]) : alert("Invalid Entry"))
     setCourse("")
     console.log(courseList)
   }
+
+  //this deletes course from the course lists
+  const deleteCourse = (input) =>{
+    setCourseList((prevCourse) => {
+      return prevCourse.filter((course) => input !== course);
+    });
+  };
 
   return (
     <View style={styles.fullPage}>
@@ -81,8 +87,8 @@ const subSignupScreenCourses = ({ navigation }) => {
           renderItem={({ item }) => {
             return (
               <CourseTab
-                courseName={item}
-                deleteCourse={()=>setCourseList(courseList.filter((it) => it != item))}
+                course={item}
+                deleteCourse={deleteCourse}
               />
             )
           }

@@ -8,13 +8,13 @@ const CourseTab = (props) => {
         // View that wraps each box that holds the course and delete button
         <View style={{ flexDirection: 'row' }}>
             <View style={styles.conatiner}>
-                <Text style={styles.courseText}>{props.courseName}</Text>
+                <Text style={styles.courseText}>{props.course}</Text>
             </View>
 
             {/* Trsh can to remove the course from the list */}
             <TouchableOpacity 
                 style={{ alignSelf: 'center', paddingHorizontal: 10 }}
-                onPress={()=>props.deleteCourse()}
+                onPress={()=>props.deleteCourse(props.course)}
             >
                 <Feather name="trash-2" size={20}/>
             </TouchableOpacity>
