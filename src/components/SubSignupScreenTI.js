@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(61, 139, 227)',
     backgroundColor: 'rgba(0,0,0,0)',
     height: 65,
-    width: 270,
+    width: 250,
     marginVertical: 1,
     borderRadius: 4,
     fontSize: 30,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     flexDirection: 'row',
     borderColor: 'rgb(61, 139, 227)',
-    width: 320,
+    width: 300,
     paddingHorizontal: 10,
   }
 });

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     //the status bar
     statusBar: {
         height: 15,
-        width: 320,
+        width: 300,
         borderColor: 'grey',
         borderWidth: 1.5,
         borderRadius: 10,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 
     //the view that encapsulates the status bar status text
     statusBarView: {
-        width: 320,
+        width: 300,
     },
 
     //the text for status bar "3of3"

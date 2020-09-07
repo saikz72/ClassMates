@@ -30,7 +30,7 @@ const subSignupScreenFaculty = ({ navigation }) => {
       <MajorButton
         text="Next"
         nextScreen={() => navigation.navigate('subSignupScreenMajor')}
-        buttonWidth={320}
+        buttonWidth={300}
         borderRadius={20}
       />
     </View>
