@@ -31,7 +31,7 @@ const subSignupScreenMajor = ({ navigation }) => {
       <MajorButton
         text="Next"
         nextScreen={() => navigation.navigate('subSignupScreenCourses')}
-        buttonWidth={320}
+        buttonWidth={300}
         borderRadius={20}
       />
     </View>
