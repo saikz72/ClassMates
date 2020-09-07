@@ -16,7 +16,6 @@ const RootStackScreen = ({ navigation }) => (
     <RootStack.Screen name="GetStartedScreen" component={GetStartedScreen} />
     <RootStack.Screen name="SignupScreen" component={SignupScreen} />
     <RootStack.Screen name="LoginScreen" component={LoginScreen} />
-    <RootStack.Screen name="HomeScreen" component={HomeScreen} />
     <RootStack.Screen
       name="subSignupScreenFaculty"
       component={subSignupScreenFaculty}

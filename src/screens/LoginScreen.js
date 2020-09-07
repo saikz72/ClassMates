@@ -57,7 +57,7 @@ const LoginScreen = ({ navigation }) => {
       {/* Login button which navigates to the app HomeScreen */}
       <MajorButton
         text="Login"
-        nextScreen={() => navigation.navigate('HomeScreen')}
+        nextScreen={() => handleSignIn(email, password)}
         buttonWidth={270}
         borderRadius={10}
       />

@@ -34,7 +34,7 @@ const subSignupScreenCourses = ({ navigation }) => {
       {/* Finish button which navigates to the app HomeScreen */}
       <MajorButton
         text="Finish"
-        nextScreen={() => navigation.navigate('HomeScreen')}
+        nextScreen={() => signupUserInFirebase()}
         buttonWidth={320}
         borderRadius={20}
       />
