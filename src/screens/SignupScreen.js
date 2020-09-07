@@ -5,10 +5,11 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput,
   Linking,
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
+import MajorButton from '../components/MajorButton';
+import MajorTextInput from '../components/MajorTextInput';
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -33,37 +34,31 @@ const SignupScreen = ({ navigation }) => {
 
       {/* View that encapsulates text inputs for both email and passowrd */}
       <View style={styles.emailPassView}>
+
         {/* TI for email */}
-        <TextInput
-          style={styles.emailPassTI}
+        <MajorTextInput
           placeholder="school email"
-          placeholderTextColor="rgb(207, 207, 207)"
-          autoCapitalize="none"
-          autoCorrect={false}
           value={email}
           onChangeText={(email) => setEmail(email)}
+          secureTextEntry={false}
         />
 
         {/* TI for password */}
-        <TextInput
-          style={styles.emailPassTI}
+        <MajorTextInput
           placeholder="password"
-          placeholderTextColor="rgb(207, 207, 207)"
-          secureTextEntry={true}
-          autoCapitalize="none"
-          autoCorrect={false}
           value={password}
           onChangeText={(password) => setPassword(password)}
+          secureTextEntry={true}
         />
       </View>
 
-      {/* Signup button */}
-      <TouchableOpacity
-        onPress={() => signUp(email, password)}
-        style={styles.signupButton}
-      >
-        <Text style={styles.signupText}>Signup</Text>
-      </TouchableOpacity>
+      {/* Signup button which navigates to the subSignupScreenFaculty */}
+      <MajorButton
+        text="Signup"
+        nextScreen={() => navigation.navigate('subSignupScreenFaculty')}
+        buttonWidth={270}
+        borderRadius={10}
+      />
 
       {/* View that encapsulates Microsoft authentication */}
       <View style={styles.msAccountView}>
@@ -110,35 +105,11 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
 
-  //text inputs for the email and password
-  emailPassTI: {
-    borderColor: 'rgb(61, 139, 227)',
-    backgroundColor: 'rgba(0,0,0,0)',
-    height: 45,
-    width: 320,
-    marginTop: 5,
-    borderRadius: 4,
-    fontSize: 18,
-    color: 'black',
-    borderBottomWidth: 2,
-    paddingHorizontal: 15,
-  },
-
   //the view that holds email and password TIs
   emailPassView: {
     height: 105,
     justifyContent: 'space-between',
     marginBottom: 20,
-  },
-
-  //the background for the signup button
-  signupButton: {
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 270,
-    height: 40,
-    backgroundColor: 'rgb(61, 139, 227)',
   },
 
   //full page/background
@@ -148,13 +119,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(232, 232, 232)',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-
-  //the text inside the signup button
-  signupText: {
-    fontSize: 22,
-    color: 'white',
-    fontWeight: '500',
   },
 
   //the text for signing up using Microsoft

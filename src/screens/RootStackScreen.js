@@ -6,6 +6,7 @@ import SignupScreen from './SignupScreen';
 import subSignupScreenFaculty from './subSignupScreenFaculty';
 import subSignupScreenMajor from './subSignupScreenMajor';
 import subSignupScreenCourses from './subSignupScreenCourses';
+import HomeScreen from './HomeScreen';
 
 const RootStack = createStackNavigator();
 
