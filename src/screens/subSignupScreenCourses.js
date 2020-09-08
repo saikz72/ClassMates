@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
+  Alert
 } from 'react-native';
 import AuthContext from '../components/context/AuthContext';
 import MajorButton from '../components/MajorButton';
@@ -19,13 +20,42 @@ const subSignupScreenCourses = ({ navigation }) => {
   const [course, setCourse] = useState('');
   const [courseList, setCourseList] = useState([]);
 
+  //this is code that is called when user tries to input a course that is already on the list
+  const duplicateEntry = () => {
+    Alert.alert(
+        "Duplicate entry",
+        "Hmm...seems like that course is already on your list.",
+        [
+            {
+                text: "Ok",
+                onPress: () => setCourse(""),
+            },
+        ],
+        { cancelable: false }
+    );
+}
+
+//this is code that is called when user tries to input a course that is already on the list
+const invalidCourse = () => {
+  Alert.alert(
+      "Invalid course",
+      "Oops...seems like that course does not exist, or your input is invalid.",
+      [
+          {
+              text: "Ok",
+              onPress: () => setCourse(""),
+          },
+      ],
+      { cancelable: false }
+  );
+}
+
   // these characters are not allowed in course name string
   const specialChars=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-"," _",
                     " =", "+", "/", "*", ":", ";", ',', "`", "'", ".", "?", "]", "[", "{", "}", '"', "|", ]
   //this adds the course to the array if it's not there already and if the string is not empty
   const submitAndClear = () => {
-    courseList.includes(course) ? alert("Hmm...seems like this course is already in your list")
-      : (course.length > 0 ? setCourseList((prevCourseList) => [...prevCourseList, course]) : alert("Invalid Entry"))
+    courseList.includes(course) ? duplicateEntry() : (course.length > 0 ? setCourseList((prevCourseList) => [...prevCourseList, course]) : invalidCourse())
     setCourse("")
     console.log(courseList)
   }
