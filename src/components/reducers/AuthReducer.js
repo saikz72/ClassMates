@@ -1,38 +1,24 @@
 export const initialState = {
-  user: '',
-  isLoading: true,
-  userToken: null,
+  user: null,
+  loading: true,
+  error: '',
+  token: null,
 };
 
-const AuthReducer = (state, action) => {
+const authReducer = (state, action) => {
   switch (action.type) {
     //handles login action when user taps on login button in sign in screen
-    case 'LOGIN':
+    case 'SET_USER':
       return {
         ...state,
         user: action.user,
-        userToken: action.token,
-        isLoading: false,
-      };
-    //handles logout action
-    case 'LOGOUT':
-      return {
-        ...state,
-        user: action.user,
-        userToken: action.token,
-        isLoading: false,
-      };
-    //handles signup action
-    case 'SIGNUP':
-      return {
-        ...state,
-        user: action.user,
-        userToken: action.token,
-        isLoading: false,
+        loading: action.loading,
+        token: action.token,
+        error: action.error,
       };
     default:
       return state;
   }
 };
 
-export default AuthReducer;
+export default authReducer;

@@ -1,26 +1,55 @@
 import React, { useState, useContext } from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
-import AuthContext from '../components/context/AuthContext';
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import firebase from '../firebase';
 import MajorButton from '../components/MajorButton';
 import RegularTextInput from '../components/RegularTextInput';
 import PasswordTextInput from '../components/PasswordTextInput';
 import Feather from 'react-native-vector-icons/Feather';
+import { AuthContext } from '../components/providers/AuthProvider';
+import Loading from '../components/Loading';
 
 //useStates to handle input from user
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { handleSignIn } = useContext(AuthContext);
+  const [state, dispatch] = useContext(AuthContext);
+
+  const loginUser = (email, password) => {
+    //dispatch({ type: 'LOG_USER' });
+    console.log('button pressed');
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((user) =>
+        dispatch({
+          type: 'SET_USER',
+          loading: true,
+          user: user,
+          token: 'TOKEN',
+        })
+      )
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  function renderLoginButton() {
+    if (state.loading) {
+      return <Loading />;
+    } else {
+      return (
+        <MajorButton
+          text="Login"
+          nextScreen={() => loginUser(email, password)}
+          buttonWidth={270}
+          borderRadius={10}
+        />
+      );
+    }
+  }
 
   return (
     <View style={styles.fullPage}>
-
       {/* View that encapsulates the logo(text version) */}
       <View style={styles.logoView}>
         <Image
@@ -37,32 +66,42 @@ const LoginScreen = ({ navigation }) => {
           value={email}
           onChangeText={(email) => setEmail(email)}
           secureTextEntry={false}
-          icon={<Feather name="mail" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
+          icon={
+            <Feather
+              name="mail"
+              color="rgb(61, 139, 227)"
+              size={25}
+              style={{ alignSelf: 'center' }}
+            />
+          }
         />
 
         {/* TI for password */}
         <PasswordTextInput
           value={password}
           onChangeText={(password) => setPassword(password)}
-          icon={<Feather name="lock" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
+          icon={
+            <Feather
+              name="lock"
+              color="rgb(61, 139, 227)"
+              size={25}
+              style={{ alignSelf: 'center' }}
+            />
+          }
         />
       </View>
 
       {/* View that encapsulates the forgot password button */}
       <View style={styles.forgotView}>
-        <TouchableOpacity onPress={()=>navigation.navigate('ForgotPasswordScreen')}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ForgotPasswordScreen')}
+        >
           <Text style={styles.forgot}>Forgot password?</Text>
         </TouchableOpacity>
       </View>
 
       {/* Login button which navigates to the app HomeScreen */}
-      <MajorButton
-        text="Login"
-        nextScreen={() => handleSignIn(email, password)}
-        buttonWidth={270}
-        borderRadius={10}
-      />
-
+      {renderLoginButton()}
       {/* View that encapsulates "Don't have account" */}
       <View style={styles.accountSignView}>
         <Text style={{ color: 'grey' }}>Don't have an account?</Text>
