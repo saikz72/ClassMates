@@ -5,7 +5,6 @@ import MajorButton from '../components/MajorButton';
 const GetStartedScreen = ({ navigation }) => {
   return (
     <View style={styles.fullPage}>
-
       {/* View that encapsulates ClassMates logo(main) */}
       <View style={styles.logoView}>
         <Image source={require('../../assets/logo.png')} style={styles.logo} />
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
     width: 100,
     alignSelf: 'center',
   },
-  
+
   //the view that holds the image
   imageView: {
     borderColor: 'black',
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
     marginBottom: 23,
     justifyContent: 'space-between',
   },
-  
+
   //the view that holds the logo
   logoView: {
     borderColor: 'black',

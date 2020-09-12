@@ -7,23 +7,26 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-import AuthContext from '../components/context/AuthContext';
+import firebase from '../firebase';
 import MajorButton from '../components/MajorButton';
 import RegularTextInput from '../components/RegularTextInput';
 import PasswordTextInput from '../components/PasswordTextInput';
 import Feather from 'react-native-vector-icons/Feather';
+import { AuthContext } from '../components/providers/AuthProvider';
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { handleSignUp } = useContext(AuthContext);
+  const [state, dispatch] = useContext(AuthContext);
 
-  const signUp = (email, password) => {
-    //TODO validate credentials
-    handleSignUp(email, password);
-    navigation.navigate('subSignupScreenFaculty');
+  const signupUser = (email, password) => {
+    console.log('email' + email + 'password' + password);
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((user) => dispatch({ type: 'SET_USER', user: user, token: null }))
+      .catch((error) => console.log(error));
   };
-
   return (
     <View style={styles.fullPage}>
       {/* View that encapsulates the ClassMates logo(text version) */}
@@ -41,7 +44,14 @@ const SignupScreen = ({ navigation }) => {
           placeholder="school email"
           value={email}
           onChangeText={(email) => setEmail(email)}
-          icon={<Feather name="mail" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
+          icon={
+            <Feather
+              name="mail"
+              color="rgb(61, 139, 227)"
+              size={25}
+              style={{ alignSelf: 'center' }}
+            />
+          }
         />
 
         {/* TI for password */}
@@ -49,14 +59,21 @@ const SignupScreen = ({ navigation }) => {
           value={password}
           onChangeText={(password) => setPassword(password)}
           secureTextEntry={true}
-          icon={<Feather name="lock" color='rgb(61, 139, 227)' size={25} style={{alignSelf:'center'}}/>}
+          icon={
+            <Feather
+              name="lock"
+              color="rgb(61, 139, 227)"
+              size={25}
+              style={{ alignSelf: 'center' }}
+            />
+          }
         />
       </View>
 
       {/* Signup button which navigates to the subSignupScreenFaculty */}
       <MajorButton
         text="Signup"
-        nextScreen={() => signUp(email, password)}
+        nextScreen={() => signupUser(email, password)}
         buttonWidth={270}
         borderRadius={10}
       />
